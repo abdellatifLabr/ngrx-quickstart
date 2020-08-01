@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
 
 import { AppComponent } from './app.component';
+import { PostModule } from './post/post.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]

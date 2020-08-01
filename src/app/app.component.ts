@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AddTodo, RemoveTodo } from './store/actions/todo.actions';
 import { Observable } from 'rxjs';
-import { AppState } from './store/app.state';
+import { AppState } from './app.state';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.todos$ = this.store.select('todos');
+    this.store.select(state => state).subscribe(console.log)
   }
   
   onAddTodo() {
