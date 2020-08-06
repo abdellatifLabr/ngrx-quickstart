@@ -12,11 +12,16 @@ import { AppState } from './app.state';
     <ul>
       <li *ngFor="let todo of todos$ | async">{{ todo }}</li>
     </ul>
+    <h3>Posts</h3>
+    <ol>
+      <li *ngFor="let post of posts$ | async">{{ post }}</li>
+    </ol>
   `,
   styles: []
 })
 export class AppComponent implements OnInit {
   todos$: Observable<any[]>;
+  posts$: Observable<any[]>;
 
   constructor(
     private store: Store<AppState>
@@ -24,7 +29,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.todos$ = this.store.select('todos');
-    this.store.select(state => state).subscribe(console.log)
+    this.posts$ = this.store.select('post', 'posts');
   }
   
   onAddTodo() {
